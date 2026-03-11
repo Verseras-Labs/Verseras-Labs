@@ -9,9 +9,13 @@
     <meta property="og:description" content="A consulting and development studio focused on strategy, analytics, and building products that matter.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://verseraslabs.com">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://verseraslabs.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Verseras Labs">
     <meta name="twitter:description" content="A consulting and development studio focused on strategy, analytics, and building products that matter.">
+    <meta name="twitter:image" content="https://verseraslabs.com/og-image.png">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%232563eb'/><text x='50' y='68' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700' font-size='56'>V</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +26,7 @@
             --text: #1a1a1a;
             --muted: #888;
             --accent: #2563eb;
+            --border: #e0e0e0;
         }
 
         * {
@@ -95,14 +100,16 @@
             color: var(--muted);
             font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
+        /* ── Services ── */
         .services {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 3.5rem;
             flex-wrap: wrap;
         }
 
@@ -112,9 +119,24 @@
             letter-spacing: 0.05em;
         }
 
+        .services .dot {
+            width: 3px;
+            height: 3px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 1rem;
+        }
+
         /* ── Products ── */
+        .section-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--border);
+            margin: 0 auto 2rem;
+        }
+
         .apps-section {
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .apps-label {
@@ -122,7 +144,7 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         .product-list {
@@ -136,13 +158,13 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.85rem 0;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border);
             text-decoration: none;
             color: inherit;
         }
 
         .product-card:last-child {
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
         }
 
         .card-accent {
@@ -246,7 +268,15 @@
 
         /* ── Contact ── */
         .contact {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
         }
 
         .contact-email {
@@ -261,7 +291,12 @@
         }
 
         /* ── Footer ── */
-        .footer {
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .footer-corp {
             font-size: 0.75rem;
             color: #bbb;
             letter-spacing: 0.02em;
@@ -285,9 +320,25 @@
             color: var(--muted);
         }
 
+        /* ── Mobile ── */
         @media (max-width: 480px) {
             .services {
-                gap: 1rem;
+                gap: 0;
+            }
+
+            .services .dot {
+                margin: 0 0.6rem;
+            }
+        }
+
+        @media (hover: none) {
+            .card-expand {
+                max-height: 100px;
+                opacity: 1;
+            }
+
+            .card-accent {
+                height: 32px;
             }
         }
     </style>
@@ -305,9 +356,13 @@
 
         <div class="services">
             <span>Consulting</span>
+            <div class="dot"></div>
             <span>Development</span>
+            <div class="dot"></div>
             <span>Analytics</span>
         </div>
+
+        <div class="section-divider"></div>
 
         <div class="apps-section">
             <div class="apps-label">Products</div>
@@ -343,17 +398,20 @@
             </div>
         </div>
 
+        <div class="section-divider"></div>
+
         <div class="contact">
+            <div class="contact-label">Get in Touch</div>
             <a href="mailto:contact@verseraslabs.com" class="contact-email">contact@verseraslabs.com</a>
         </div>
 
-        <div class="footer">
-            &copy; 2026 Verseras Labs Inc. All rights reserved.
-        </div>
-        <div class="footer-links">
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Service</a>
-        </div>
+        <footer>
+            <div class="footer-corp">&copy; 2026 Verseras Labs Inc. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
