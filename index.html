@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verseras Labs | Consulting & Development</title>
+    <title>Verseras Labs | Technology Holding Company</title>
+    <meta name="description" content="Verseras Labs Inc. builds and operates technology products in sports analytics and risk management. Home of ParlAid and CourtVision.">
+    <meta property="og:title" content="Verseras Labs | Technology Holding Company">
+    <meta property="og:description" content="Building technology products in sports analytics and risk management.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://verseraslabs.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Verseras Labs">
+    <meta name="twitter:description" content="Building technology products in sports analytics and risk management.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%232563eb'/><text x='50' y='68' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700' font-size='56'>V</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fafafa;
             --text: #1a1a1a;
-            --muted: #888;
+            --muted: #6b7280;
+            --light: #9ca3af;
             --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --border: #e5e7eb;
+            --card-bg: #ffffff;
         }
 
         * {
@@ -29,13 +42,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            padding: 3rem 1.5rem 2rem;
         }
 
         .container {
-            max-width: 480px;
+            max-width: 640px;
+            width: 100%;
+        }
+
+        /* ── Header ── */
+        header {
             text-align: center;
+            margin-bottom: 4rem;
         }
 
         .logo {
@@ -43,136 +61,249 @@
             font-size: 1.5rem;
             font-weight: 400;
             letter-spacing: 0.1em;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .logo span {
             color: var(--accent);
         }
 
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .status::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
         h1 {
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: clamp(2rem, 6vw, 2.75rem);
             font-weight: 300;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         .description {
             color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 3rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
-        .services {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .services span {
-            font-size: 0.8rem;
-            color: var(--muted);
-            letter-spacing: 0.05em;
-        }
-
-        .apps-section {
-            margin-bottom: 4rem;
-        }
-
-        .apps-label {
+        /* ── Products ── */
+        .section-label {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--muted);
-            margin-bottom: 1rem;
+            color: var(--light);
+            margin-bottom: 1.25rem;
+            text-align: center;
         }
 
-        .apps {
+        .products {
+            margin-bottom: 3.5rem;
+        }
+
+        .product-grid {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
-        .app {
+        .product-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        }
+
+        .product-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .product-icon.parlaid {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
             font-family: 'Space Mono', monospace;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .product-icon.courtvision {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .product-name {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-name .tm {
+            font-size: 0.65rem;
+            vertical-align: super;
+            color: var(--light);
+        }
+
+        .product-desc {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .product-card:hover .product-link {
+            text-decoration: underline;
+        }
+
+        .product-arrow {
+            color: var(--light);
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+            align-self: center;
+        }
+
+        .product-card:hover .product-arrow {
+            transform: translateX(3px);
+            color: var(--accent);
+        }
+
+        /* ── Contact ── */
+        .contact {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-email {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
             color: var(--accent);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-email:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            width: 100%;
+            max-width: 640px;
+        }
+
+        .footer-corp {
+            font-size: 0.75rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            color: var(--light);
+            text-decoration: none;
+            letter-spacing: 0.03em;
             transition: color 0.2s ease;
         }
 
-        .app:hover {
-            color: var(--text);
-        }
-
-        .footer {
-            font-size: 0.75rem;
-            color: #bbb;
-            letter-spacing: 0.02em;
+        .footer-links a:hover {
+            color: var(--muted);
         }
 
         @media (max-width: 480px) {
-            .services {
-                gap: 1rem;
+            body {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            .product-card {
+                padding: 1.25rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">VERSERAS<span>.</span>LABS</div>
-        
-        <h1>Building what's next</h1>
-        
-        <p class="description">
-            A consulting and development studio focused on strategy, 
-            analytics, and building products that matter.
-        </p>
+        <header>
+            <div class="logo">VERSERAS<span>.</span>LABS</div>
+            <h1>Building what's next</h1>
+            <p class="description">
+                Verseras Labs Inc. is a technology holding company that builds
+                and operates products in sports analytics and risk management.
+            </p>
+        </header>
 
-        <div class="services">
-            <span>Consulting</span>
-            <span>Development</span>
-            <span>Analytics</span>
-        </div>
-
-        <div class="apps-section">
-            <div class="apps-label">Live Apps</div>
-            <div class="apps">
-                <a href="https://getcourtvision.app" class="app" target="_blank">getcourtvision.app</a>
+        <section class="products">
+            <div class="section-label">Products</div>
+            <div class="product-grid">
+                <a href="https://parlaid.app" class="product-card" target="_blank" rel="noopener">
+                    <div class="product-icon parlaid">P</div>
+                    <div class="product-info">
+                        <div class="product-name">ParlAid<span class="tm">&trade;</span></div>
+                        <div class="product-desc">Sports betting risk management platform for smarter, data-driven wagering decisions.</div>
+                        <div class="product-link">parlaid.app</div>
+                    </div>
+                    <span class="product-arrow">&rarr;</span>
+                </a>
+                <a href="https://getcourtvision.app" class="product-card" target="_blank" rel="noopener">
+                    <div class="product-icon courtvision">C</div>
+                    <div class="product-info">
+                        <div class="product-name">CourtVision</div>
+                        <div class="product-desc">NBA fantasy analytics and management tools for competitive league play.</div>
+                        <div class="product-link">getcourtvision.app</div>
+                    </div>
+                    <span class="product-arrow">&rarr;</span>
+                </a>
             </div>
-        </div>
+        </section>
 
-        <div class="footer">
-            © 2026 Verseras Labs. All rights reserved.
-        </div>
+        <section class="contact">
+            <div class="section-label">Get in Touch</div>
+            <a href="mailto:contact@verseraslabs.com" class="contact-email">contact@verseraslabs.com</a>
+        </section>
+
+        <footer>
+            <div class="footer-corp">&copy; 2026 Verseras Labs Inc. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
