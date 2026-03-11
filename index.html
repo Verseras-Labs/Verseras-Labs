@@ -18,14 +18,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #09090b;
-            --surface: #18181b;
-            --surface-2: #27272a;
-            --text: #fafafa;
-            --muted: #a1a1aa;
-            --dim: #71717a;
+            --bg: #fafafa;
+            --text: #111827;
+            --muted: #6b7280;
+            --dim: #9ca3af;
             --accent: #2563eb;
-            --border: #27272a;
+            --border: #e5e7eb;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,13 +34,12 @@
             color: var(--text);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .page {
-            max-width: 1080px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         /* ── Nav ── */
@@ -50,8 +47,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 1.75rem 0;
         }
 
         .logo {
@@ -59,7 +55,6 @@
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.06em;
-            color: var(--text);
         }
 
         .logo span { color: var(--accent); }
@@ -71,28 +66,25 @@
             transition: color 0.2s;
         }
 
-        .nav-email:hover { color: var(--muted); }
+        .nav-email:hover { color: var(--accent); }
 
         /* ── Hero ── */
         .hero {
-            padding: 6rem 0 5rem;
-            max-width: 620px;
+            padding: 5rem 0 4.5rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5.5vw, 3.5rem);
+            font-size: clamp(2.25rem, 5.5vw, 3rem);
             font-weight: 300;
-            line-height: 1.15;
+            line-height: 1.2;
             letter-spacing: -0.025em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .hero h1 strong {
-            font-weight: 600;
-        }
+        .hero h1 strong { font-weight: 600; }
 
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             color: var(--muted);
             max-width: 480px;
@@ -100,165 +92,141 @@
 
         /* ── Products ── */
         .products {
-            padding-bottom: 6rem;
+            padding-bottom: 5rem;
         }
 
         .products-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: var(--dim);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-        }
-
-        .product-card {
-            position: relative;
+        .product-list {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem;
-            border-radius: 16px;
+            gap: 0;
+        }
+
+        /* ── Product Card: slim row, expands on hover ── */
+        .product-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
             text-decoration: none;
             color: inherit;
-            overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            min-height: 280px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* ParlAid card */
-        .card-parlaid {
-            background: linear-gradient(165deg, #1e3a5f 0%, #0f1b2d 50%, #0a1628 100%);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-        }
-
-        .card-parlaid::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* CourtVision card */
-        .card-courtvision {
-            background: linear-gradient(165deg, #2d1f0e 0%, #1a1208 50%, #12100a 100%);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .card-courtvision::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .card-top {
             position: relative;
-            z-index: 1;
         }
 
-        .card-badge {
-            display: inline-block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 0.3rem 0.65rem;
-            border-radius: 6px;
-            margin-bottom: 1.25rem;
+        .product-card:last-child {
+            border-bottom: 1px solid var(--border);
         }
 
-        .card-parlaid .card-badge {
-            background: rgba(37, 99, 235, 0.2);
-            color: #60a5fa;
+        .product-card .card-accent {
+            width: 3px;
+            height: 20px;
+            border-radius: 2px;
+            flex-shrink: 0;
+            transition: height 0.3s ease;
         }
 
-        .card-courtvision .card-badge {
-            background: rgba(245, 158, 11, 0.2);
-            color: #fbbf24;
+        .card-parlaid .card-accent { background: var(--accent); }
+        .card-courtvision .card-accent { background: #f59e0b; }
+
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .card-name {
             font-family: 'Space Mono', monospace;
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            margin-bottom: 0.75rem;
         }
 
         .card-name .tm {
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             font-weight: 400;
             vertical-align: super;
             color: var(--dim);
-            letter-spacing: 0;
+        }
+
+        .card-badge {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .card-parlaid .card-badge {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .card-courtvision .card-badge {
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+        .card-expand {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .product-card:hover .card-expand,
+        .product-card:focus .card-expand {
+            max-height: 120px;
+            opacity: 1;
+            margin-top: 0.6rem;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.6;
             color: var(--muted);
-        }
-
-        .card-bottom {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 2rem;
+            margin-bottom: 0.4rem;
         }
 
         .card-url {
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            color: var(--accent);
         }
 
-        .card-parlaid .card-url { color: #60a5fa; }
-        .card-courtvision .card-url { color: #fbbf24; }
+        .card-courtvision .card-url {
+            color: #d97706;
+        }
 
         .card-arrow {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            transition: transform 0.2s ease;
-        }
-
-        .card-parlaid .card-arrow {
-            background: rgba(37, 99, 235, 0.15);
-            color: #60a5fa;
-        }
-
-        .card-courtvision .card-arrow {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
+            font-size: 1rem;
+            color: var(--dim);
+            transition: transform 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
         }
 
         .product-card:hover .card-arrow {
-            transform: translateX(3px);
+            transform: translateX(4px);
+            color: var(--text);
+        }
+
+        .product-card:hover .card-accent {
+            height: 40px;
         }
 
         /* ── Footer ── */
@@ -287,20 +255,11 @@
             transition: color 0.2s;
         }
 
-        .footer-links a:hover { color: var(--muted); }
+        .footer-links a:hover { color: var(--accent); }
 
-        /* ── Responsive ── */
-        @media (max-width: 640px) {
+        @media (max-width: 480px) {
             .page { padding: 0 1.25rem; }
-
-            .hero { padding: 4rem 0 3.5rem; }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-card { min-height: 240px; }
-
+            .hero { padding: 3.5rem 0 3rem; }
             footer {
                 flex-direction: column;
                 gap: 0.75rem;
@@ -323,28 +282,34 @@
 
         <section class="products">
             <div class="products-label">Products</div>
-            <div class="product-grid">
+            <div class="product-list">
                 <a href="https://parlaid.app" class="product-card card-parlaid" target="_blank" rel="noopener">
-                    <div class="card-top">
-                        <div class="card-badge">Risk Management</div>
-                        <div class="card-name">ParlAid<span class="tm">&trade;</span></div>
-                        <div class="card-desc">Sports betting risk management platform. Smarter, data-driven wagering through real-time analytics and bankroll intelligence.</div>
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-row">
+                            <span class="card-name">ParlAid<span class="tm">&trade;</span></span>
+                            <span class="card-badge">Risk Management</span>
+                        </div>
+                        <div class="card-expand">
+                            <p class="card-desc">Sports betting risk management platform. Real-time analytics and bankroll intelligence for smarter wagering decisions.</p>
+                            <span class="card-url">parlaid.app</span>
+                        </div>
                     </div>
-                    <div class="card-bottom">
-                        <span class="card-url">parlaid.app</span>
-                        <span class="card-arrow">&rarr;</span>
-                    </div>
+                    <span class="card-arrow">&rarr;</span>
                 </a>
                 <a href="https://getcourtvision.app" class="product-card card-courtvision" target="_blank" rel="noopener">
-                    <div class="card-top">
-                        <div class="card-badge">Fantasy Analytics</div>
-                        <div class="card-name">CourtVision</div>
-                        <div class="card-desc">NBA fantasy analytics and management tools. Player insights, projections, and league strategy for competitive play.</div>
+                    <div class="card-accent"></div>
+                    <div class="card-content">
+                        <div class="card-row">
+                            <span class="card-name">CourtVision</span>
+                            <span class="card-badge">Fantasy Analytics</span>
+                        </div>
+                        <div class="card-expand">
+                            <p class="card-desc">NBA fantasy analytics and management tools. Player insights, projections, and league strategy for competitive play.</p>
+                            <span class="card-url">getcourtvision.app</span>
+                        </div>
                     </div>
-                    <div class="card-bottom">
-                        <span class="card-url">getcourtvision.app</span>
-                        <span class="card-arrow">&rarr;</span>
-                    </div>
+                    <span class="card-arrow">&rarr;</span>
                 </a>
             </div>
         </section>
