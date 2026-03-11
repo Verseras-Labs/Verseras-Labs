@@ -3,145 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verseras Labs | Technology Holding Company</title>
+    <title>Verseras Labs | Consulting & Development</title>
     <meta name="description" content="Verseras Labs Inc. builds and operates technology products in sports analytics and risk management. Home of ParlAid and CourtVision.">
-    <meta property="og:title" content="Verseras Labs | Technology Holding Company">
-    <meta property="og:description" content="Building technology products in sports analytics and risk management.">
+    <meta property="og:title" content="Verseras Labs | Consulting & Development">
+    <meta property="og:description" content="A consulting and development studio focused on strategy, analytics, and building products that matter.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://verseraslabs.com">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Verseras Labs">
-    <meta name="twitter:description" content="Building technology products in sports analytics and risk management.">
+    <meta name="twitter:description" content="A consulting and development studio focused on strategy, analytics, and building products that matter.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%232563eb'/><text x='50' y='68' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700' font-size='56'>V</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fafafa;
-            --text: #111827;
-            --muted: #6b7280;
-            --dim: #9ca3af;
+            --text: #1a1a1a;
+            --muted: #888;
             --accent: #2563eb;
-            --border: #e5e7eb;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            font-family: 'DM Sans', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .page {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* ── Nav ── */
-        nav {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 1.75rem 0;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 480px;
+            text-align: center;
         }
 
         .logo {
             font-family: 'Space Mono', monospace;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
         }
 
-        .logo span { color: var(--accent); }
-
-        .nav-email {
-            font-size: 0.8rem;
-            color: var(--dim);
-            text-decoration: none;
-            transition: color 0.2s;
+        .logo span {
+            color: var(--accent);
         }
 
-        .nav-email:hover { color: var(--accent); }
-
-        /* ── Hero ── */
-        .hero {
-            padding: 5rem 0 4.5rem;
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
         }
 
-        .hero h1 {
-            font-size: clamp(2.25rem, 5.5vw, 3rem);
+        .status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 300;
             line-height: 1.2;
-            letter-spacing: -0.025em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
-        .hero h1 strong { font-weight: 600; }
-
-        .hero p {
-            font-size: 1.05rem;
-            line-height: 1.7;
+        .description {
             color: var(--muted);
-            max-width: 480px;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
         }
 
-        /* ── Services ── */
         .services {
             display: flex;
+            justify-content: center;
             gap: 2rem;
-            margin-top: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
         .services span {
             font-size: 0.8rem;
-            color: var(--dim);
+            color: var(--muted);
             letter-spacing: 0.05em;
         }
 
         /* ── Products ── */
-        .products {
-            padding-bottom: 5rem;
+        .apps-section {
+            margin-bottom: 4rem;
         }
 
-        .products-label {
-            font-size: 0.65rem;
-            font-weight: 600;
+        .apps-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--dim);
+            letter-spacing: 0.15em;
+            color: var(--muted);
             margin-bottom: 1rem;
         }
 
         .product-list {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            text-align: left;
         }
 
-        /* ── Product Card: slim row, expands on hover ── */
         .product-card {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-top: 1px solid var(--border);
+            gap: 0.75rem;
+            padding: 0.85rem 0;
+            border-top: 1px solid #e5e5e5;
             text-decoration: none;
             color: inherit;
-            position: relative;
         }
 
         .product-card:last-child {
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .product-card .card-accent {
+        .card-accent {
             width: 3px;
-            height: 20px;
+            height: 16px;
             border-radius: 2px;
             flex-shrink: 0;
             transition: height 0.3s ease;
@@ -158,30 +164,28 @@
         .card-row {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
         }
 
         .card-name {
             font-family: 'Space Mono', monospace;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-size: 0.9rem;
+            font-weight: 400;
         }
 
         .card-name .tm {
             font-size: 0.5rem;
-            font-weight: 400;
             vertical-align: super;
-            color: var(--dim);
+            color: #bbb;
         }
 
         .card-badge {
-            font-size: 0.6rem;
-            font-weight: 600;
+            font-size: 0.55rem;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
         }
 
         .card-parlaid .card-badge {
@@ -197,109 +201,116 @@
         .card-expand {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
+            transition: max-height 0.3s ease, opacity 0.2s ease;
             opacity: 0;
-            margin-top: 0;
         }
 
         .product-card:hover .card-expand,
         .product-card:focus .card-expand {
-            max-height: 120px;
+            max-height: 100px;
             opacity: 1;
-            margin-top: 0.6rem;
         }
 
         .card-desc {
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.8rem;
+            line-height: 1.55;
             color: var(--muted);
-            margin-bottom: 0.4rem;
+            margin-top: 0.45rem;
         }
 
         .card-url {
             font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--accent);
+            display: inline-block;
+            margin-top: 0.3rem;
         }
 
-        .card-courtvision .card-url {
-            color: #d97706;
-        }
+        .card-courtvision .card-url { color: #d97706; }
 
         .card-arrow {
-            font-size: 1rem;
-            color: var(--dim);
+            font-size: 0.9rem;
+            color: #ccc;
             transition: transform 0.2s ease, color 0.2s ease;
             flex-shrink: 0;
         }
 
         .product-card:hover .card-arrow {
-            transform: translateX(4px);
+            transform: translateX(3px);
             color: var(--text);
         }
 
         .product-card:hover .card-accent {
-            height: 40px;
+            height: 32px;
+        }
+
+        /* ── Contact ── */
+        .contact {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-email {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
         }
 
         /* ── Footer ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-corp {
+        .footer {
             font-size: 0.75rem;
-            color: var(--dim);
+            color: #bbb;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 1.5rem;
+            justify-content: center;
+            gap: 1.25rem;
         }
 
         .footer-links a {
-            font-size: 0.75rem;
-            color: var(--dim);
+            font-size: 0.65rem;
+            color: #bbb;
             text-decoration: none;
-            transition: color 0.2s;
+            letter-spacing: 0.03em;
         }
 
-        .footer-links a:hover { color: var(--accent); }
+        .footer-links a:hover {
+            color: var(--muted);
+        }
 
         @media (max-width: 480px) {
-            .page { padding: 0 1.25rem; }
-            .hero { padding: 3.5rem 0 3rem; }
-            footer {
-                flex-direction: column;
-                gap: 0.75rem;
-                text-align: center;
+            .services {
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <nav>
-            <div class="logo">VERSERAS<span>.</span>LABS</div>
-            <a href="mailto:contact@verseraslabs.com" class="nav-email">contact@verseraslabs.com</a>
-        </nav>
+    <div class="container">
+        <div class="logo">VERSERAS<span>.</span>LABS</div>
 
-        <section class="hero">
-            <h1>Building what's next</h1>
-            <p>A consulting and development studio focused on strategy, analytics, and building products that matter.</p>
-            <div class="services">
-                <span>Consulting</span>
-                <span>Development</span>
-                <span>Analytics</span>
-            </div>
-        </section>
+        <h1>Building what's next</h1>
 
-        <section class="products">
-            <div class="products-label">Products</div>
+        <p class="description">
+            A consulting and development studio focused on strategy,
+            analytics, and building products that matter.
+        </p>
+
+        <div class="services">
+            <span>Consulting</span>
+            <span>Development</span>
+            <span>Analytics</span>
+        </div>
+
+        <div class="apps-section">
+            <div class="apps-label">Products</div>
             <div class="product-list">
                 <a href="https://parlaid.app" class="product-card card-parlaid" target="_blank" rel="noopener">
                     <div class="card-accent"></div>
@@ -330,15 +341,19 @@
                     <span class="card-arrow">&rarr;</span>
                 </a>
             </div>
-        </section>
+        </div>
 
-        <footer>
-            <div class="footer-corp">&copy; 2026 Verseras Labs Inc. All rights reserved.</div>
-            <div class="footer-links">
-                <a href="/privacy.html">Privacy</a>
-                <a href="/terms.html">Terms</a>
-            </div>
-        </footer>
+        <div class="contact">
+            <a href="mailto:contact@verseraslabs.com" class="contact-email">contact@verseraslabs.com</a>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Verseras Labs Inc. All rights reserved.
+        </div>
+        <div class="footer-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+        </div>
     </div>
 </body>
 </html>
